@@ -10,7 +10,7 @@ import MyContainer from './../componnt/MyContainer';
 const MainlayOut = () => {
     return (
 
-        <div className="bg-gray-600">
+        <div className="bg-gray-800 ">
             <MyContainer>
 
         <div className="flex flex-col min-h-screen bg-gray-500">
