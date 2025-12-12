@@ -1,0 +1,62 @@
+[
+  {
+    "skillId": 3,
+    "skillName": "Python Programming Basics",
+    "providerName": "Rafiq Ahmed",
+    "providerEmail": "rafiq@skillswap.com",
+    "price": 2500,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Learn Python programming from scratch with hands-on exercises...",
+    "image": "https://i.ibb.co.com/BVJNPLKn/images.png",
+    "category": "Programming"
+  },
+  {
+    "skillId": 8,
+    "skillName": "Creative Writing Workshop",
+    "providerName": "Maya Sen",
+    "providerEmail": "maya@skillswap.com",
+    "price": 1200,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Enhance storytelling, poetry, and essay writing skills...",
+    "image": "https://i.ibb.co.com/60CSVPk4/images-3.jpg",
+    "category": "Writing"
+  },
+  {
+    "skillId": 15,
+    "skillName": "Meditation and Mindfulness",
+    "providerName": "Leena Das",
+    "providerEmail": "leena@skillswap.com",
+    "price": 1200,
+    "rating": 4.9,
+    "slotsAvailable": 6,
+    "description": "Guided meditation sessions for stress relief and mental clarity...",
+    "image": "https://i.ibb.co.com/XZWQBv3R/download-2.jpg",
+    "category": "Wellness"
+  },
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 1000,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners...",
+    "image": "https://i.ibb.co.com/7JgJv7T1/Guitar-Lessons-Beginners-Hero.jpg",
+    "category": "Music"
+  },
+  {
+    "skillId": 10,
+    "skillName": "Web Development Fundamentals",
+    "providerName": "Tania Rahman",
+    "providerEmail": "tania@skillswap.com",
+    "price": 3500,
+    "rating": 4.8,
+    "slotsAvailable": 2,
+    "description": "Learn HTML, CSS, and JavaScript basics to build your first websites...",
+    "image": "https://i.ibb.co.com/Pz0Y6VpD/The-Fundamentals-of-Front-End-Web-Development.png",
+    "category": "Programming"
+  }
+]
