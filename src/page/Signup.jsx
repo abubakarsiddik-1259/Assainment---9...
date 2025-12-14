@@ -1,26 +1,41 @@
 import {
-  createUserWithEmailAndPassword,
+  
   GoogleAuthProvider,
   signInWithPopup,
+
 } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router";
 import { auth } from "../firebase/firebase.config";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
+import { AuthContext } from "../context/AuthContext";
 
 const GoogleProvider = new GoogleAuthProvider();
 
 const Signup = () => {
   const [show, setShow] = useState(false);
 
+const {signupFun,updateProfileFunction} = useContext(AuthContext)
+
+
+
+
+
+
+
+
+
+
   //////// Submit Fun //////
   const hendleSignup = (e) => {
     e.preventDefault();
+    const displayName = e.target.name?.value;
+    const photoURL = e.target.photo?.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log("DOm", { email, password });
+    console.log("DOm", { email, password, displayName,  photoURL });
 
     ///// Password Condition ///////
     const passwordRegex =
@@ -35,13 +50,51 @@ const Signup = () => {
 
     ///////////////Sigin ///////////
 
-    createUserWithEmailAndPassword(auth, email, password)
+    signupFun( email, password)
       .then((res) => {
+        updateProfileFunction(
+          displayName,
+          photoURL,
+        ) .then((res) => {
         console.log(res);
         toast.success("Signup success");
       })
       .catch((e) => {
         toast.error(e.message);
+      });
+
+
+
+        console.log(res);
+        toast.success("Signup success");
+      })
+      .catch((e) => {
+        
+           if (e.code === "auth/email-already-in-use") {
+          toast.error("This email is already in use.");
+        } else if (e.code === "auth/invalid-email") {
+          toast.error("Please enter a valid email address.");
+        } else if (e.code === "auth/operation-not-allowed") {
+          toast.error("Email/password accounts are not enabled.");
+        } else if (e.code === "auth/weak-password") {
+          toast.error("Password is too weak. Use 6 or more characters.");
+        } else if (e.code === "auth/too-many-requests") {
+          toast.error("Too many attempts. Please try again later.");
+        } else if (e.code === "auth/network-request-failed") {
+          toast.error("Network error. Check your internet connection.");
+        } else if (e.code === "auth/user-disabled") {
+          toast.error("This user account has been disabled.");
+        } else if (e.code === "auth/internal-error") {
+          toast.error("Internal server error. Try again later.");
+        } else if (e.code === "auth/missing-email") {
+          toast.error("Please enter your email.");
+        } else if (e.code === "auth/missing-password") {
+          toast.error("Please enter your password.");
+        } else {
+          // any other unknown error
+          toast.error(e.message);
+        }
+
       });
   };
 
@@ -59,16 +112,36 @@ const Signup = () => {
   return (
     <div className="bg-gradient-to-r from-blue-400 to-green-600">
       <div className="hero  min-h-screen">
-        <div className="card bg-gray-500 w-full max-w-sm shrink-0   shadow-2xl">
+        <div className="card bg-purple-800 w-full max-w-sm shrink-0   shadow-2xl">
           <div className="card-body">
             <form onSubmit={hendleSignup}>
               <fieldset className="fieldset">
-                <label className="label text-[12px] text-gray-200">Email</label>
+                <label className="label text-[12px] text-gray-200">Name</label>
+                <input
+                  name="name"
+                  type="text"
+                  className="input"
+                  placeholder="Your Name"
+                  required
+                />
+
+
+                 <label className="label text-[12px] text-gray-200">Email</label>
                 <input
                   name="email"
                   type="email"
                   className="input"
                   placeholder="Email"
+                  required
+                />
+
+
+                 <label className="label text-[12px] text-gray-200">Photo URL</label>
+                <input
+                  name="photo"
+                  type="text"
+                  className="input"
+                  placeholder="Your photo URL here"
                   required
                 />
 

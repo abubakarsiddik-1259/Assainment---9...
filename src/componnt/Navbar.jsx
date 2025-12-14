@@ -1,9 +1,11 @@
 
 
-import React from 'react';
+import React, { useContext } from 'react';
 import MyLink from './MyLink';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
+  const {user, setUser} = useContext(AuthContext)
 
     const links = (
         <>
@@ -14,6 +16,19 @@ const Navbar = () => {
         
         </>
     ) 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     return (
@@ -40,7 +55,11 @@ const Navbar = () => {
 
   {/* .................  */}
   <div className="navbar-end">
-    <a className="btn">Button</a>
+
+        
+
+
+    
   </div>
 </div>
         </div>
