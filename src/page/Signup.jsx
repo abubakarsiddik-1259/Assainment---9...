@@ -146,7 +146,7 @@ const {signupFun,updateProfileFunction} = useContext(AuthContext)
                 />
 
                 <div className="relative">
-                  <label className="label text-[12px] text-gray-200">
+                  <label className="label text-[12px] mb-1 text-gray-200">
                     Password
                   </label>
                   <input
