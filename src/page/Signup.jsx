@@ -1,12 +1,12 @@
 import {
   
   GoogleAuthProvider,
-  signInWithPopup,
+
 
 } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router";
-import { auth } from "../firebase/firebase.config";
+
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
@@ -17,7 +17,7 @@ const GoogleProvider = new GoogleAuthProvider();
 const Signup = () => {
   const [show, setShow] = useState(false);
 
-const {signupFun,updateProfileFunction} = useContext(AuthContext)
+const {signupFun,updateProfileFunction,googleLogin,setUser} = useContext(AuthContext)
 
 
 
@@ -98,17 +98,17 @@ const {signupFun,updateProfileFunction} = useContext(AuthContext)
       });
   };
 
-  const handleGoogleSignin = () => {
-    signInWithPopup(auth, GoogleProvider)
-      .then((res) => {
-        console.log(res);
-        toast.success("Signup success");
-      })
-      .catch((e) => {
-        toast.error(e.message);
-      });
-  };
-
+   const handleGoogleSignin = () => {
+    googleLogin()
+       .then((res) => {
+          setUser(res.user);
+         console.log(res);
+         toast.success("Signup success");
+       })
+       .catch((e) => {
+         toast.error(e.message);
+       });
+   };
   return (
     <div className="bg-gradient-to-r from-blue-400 to-green-600">
       <div className="hero  min-h-screen">
