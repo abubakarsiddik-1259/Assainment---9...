@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const TopCategory = ({ topPromise }) => {
   const top = use(topPromise);
   return (
-    <div className="bg-[#50727B] pt-8 ">
+    <div className="bg-[#50727B] pt-8 pb-20">
         <h1 className="px-6 py-4 text-3xl font-semibold text-gray-100">Top Rated skills</h1>
       <div className=" gap-4 grid lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1">
         {top.map((category) => (

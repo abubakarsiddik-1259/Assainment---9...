@@ -3,6 +3,7 @@ import Bannar from "./Bannar";
 import Category from "./Category";
 import TopCategory from './TopCategory';
 import HowToWork from "./HowToWork";
+import OfferCart from "./OfferCard";
 
 const categoryPromise = fetch("/categories.json").then((res) => res.json());
 const topPromise = fetch("/top.json").then((res) => res.json());
@@ -28,7 +29,7 @@ const HomePage = () => {
       
 
       <HowToWork></HowToWork>
-
+    <OfferCart></OfferCart>
 
 
     </div>
