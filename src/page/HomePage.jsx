@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import Bannar from "./Bannar";
 import Category from "./Category";
 import TopCategory from './TopCategory';
+import HowToWork from "./HowToWork";
 
 const categoryPromise = fetch("/categories.json").then((res) => res.json());
 const topPromise = fetch("/top.json").then((res) => res.json());
@@ -25,6 +26,8 @@ const HomePage = () => {
         <TopCategory topPromise={topPromise}></TopCategory>
       </Suspense>
       
+
+      <HowToWork></HowToWork>
 
 
 

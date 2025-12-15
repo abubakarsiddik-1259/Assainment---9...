@@ -58,12 +58,12 @@ export const router = createBrowserRouter([
             },
              {
         path: "/category/:skillId",
-        
+       
         element: (
-        //   <PrivateRoute>
+          <PrivateRoute>
             
             <Details></Details>
-        //   </PrivateRoute>
+          </PrivateRoute>
         ),
         
       },
