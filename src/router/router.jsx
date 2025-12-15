@@ -9,6 +9,7 @@ import Category from "../page/Category";
 import Details from "../page/Details";
 import Profile from "../page/Profile";
 import Navbar from "../componnt/Navbar";
+import PrivateRoute from "../privateRouter/PrivateRoute";
 
 
 
@@ -51,12 +52,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/proflie",
-                Component: Profile
+                element: (<PrivateRoute>
+                    <Profile></Profile>
+                </PrivateRoute>)
             },
              {
         path: "/category/:skillId",
+        
         element: (
         //   <PrivateRoute>
+            
             <Details></Details>
         //   </PrivateRoute>
         ),

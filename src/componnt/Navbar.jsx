@@ -4,9 +4,10 @@ import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import { Link } from "react-router";
 import logo from "../assets/logo/logooo.png";
+import { PuffLoader } from "react-spinners";
 
 const Navbar = () => {
-  const { user, setUser, signOutFuntion } = useContext(AuthContext);
+  const { user, setUser, signOutFuntion, loading,  } = useContext(AuthContext);
 
   const links = (
     <>
@@ -16,6 +17,15 @@ const Navbar = () => {
     
       <li className="text-white">
         <MyLink to="/proflie">Profile</MyLink>
+      </li>
+      <li>
+        <MyLink to="/signin">Signin</MyLink>
+      </li>
+      <li>
+        <MyLink to="/signup">Signup</MyLink>
+      </li>
+      <li>
+        <MyLink to="/details">Details</MyLink>
       </li>
     </>
   );
@@ -70,7 +80,7 @@ const Navbar = () => {
 
         {/* .................  */}
         <div className="navbar-end">
-          {user ? (
+          {loading ? (<PuffLoader className="color-white"/>) : user ? (
             <div className="flex items-center gap-3">
               <div className="flex items-center ">
                 <div className="dropdown dropdown-hover">

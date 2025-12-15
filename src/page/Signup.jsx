@@ -5,7 +5,7 @@ import {
 
 } from "firebase/auth";
 import React, { useContext, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
@@ -17,7 +17,9 @@ const GoogleProvider = new GoogleAuthProvider();
 const Signup = () => {
   const [show, setShow] = useState(false);
 
-const {signupFun,updateProfileFunction,googleLogin,setUser} = useContext(AuthContext)
+  const navigate = useNavigate();
+
+const {signupFun,updateProfileFunction,googleLogin,setUser, setLoading} = useContext(AuthContext)
 
 
 
@@ -52,11 +54,18 @@ const {signupFun,updateProfileFunction,googleLogin,setUser} = useContext(AuthCon
 
     signupFun( email, password)
       .then((res) => {
+        console.log(res);
+        
         updateProfileFunction(
           displayName,
           photoURL,
         ) .then((res) => {
+           setUser(null)
         console.log(res);
+        setLoading(false)
+       
+        navigate("/signin")
+       
         toast.success("Signup success");
       })
       .catch((e) => {
@@ -65,8 +74,7 @@ const {signupFun,updateProfileFunction,googleLogin,setUser} = useContext(AuthCon
 
 
 
-        console.log(res);
-        toast.success("Signup success");
+        
       })
       .catch((e) => {
         
@@ -103,6 +111,7 @@ const {signupFun,updateProfileFunction,googleLogin,setUser} = useContext(AuthCon
        .then((res) => {
           setUser(res.user);
          console.log(res);
+          setLoading(false)
          toast.success("Signup success");
        })
        .catch((e) => {

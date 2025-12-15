@@ -3,7 +3,7 @@ import {
  
 } from "firebase/auth";
 import React, { useContext, useRef, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 import { FaEye } from "react-icons/fa";
@@ -15,8 +15,18 @@ const Signin = () => {
  
   const [show, setShow] = useState(false);
   const emailRef = useRef(null)
-const {signinFuntion, googleLogin,  setUser} = useContext(AuthContext)
+const {signinFuntion,setLoading, googleLogin, user, setUser} = useContext(AuthContext)
 
+
+const location = useLocation();
+const from = location.state || "/"
+const navigate = useNavigate();
+
+
+if(user) {
+  navigate("/")
+  return;
+}
 
   //////// Submit Fun //////
   const hendleSignup = (e) => {
@@ -42,7 +52,9 @@ const {signinFuntion, googleLogin,  setUser} = useContext(AuthContext)
       .then((res) => {
         console.log(res);
         setUser(res.user);
+         setLoading(false)
         toast.success("Signup success");
+        navigate(from)
       })
       .catch((e) => {
         toast.error(e.message);
@@ -54,7 +66,9 @@ const {signinFuntion, googleLogin,  setUser} = useContext(AuthContext)
       .then((res) => {
          setUser(res.user);
         console.log(res);
+         setLoading(false)
         toast.success("Signup success");
+        navigate(from)
       })
       .catch((e) => {
         toast.error(e.message);
