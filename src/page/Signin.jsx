@@ -2,7 +2,7 @@ import {
   
  
 } from "firebase/auth";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext,  useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
@@ -14,8 +14,8 @@ import { AuthContext } from "../context/AuthContext";
 const Signin = () => {
  
   const [show, setShow] = useState(false);
-  const emailRef = useRef(null)
-const {signinFuntion,setLoading, googleLogin, user, setUser} = useContext(AuthContext)
+  const [email, setEmail] = useState("")
+const {signinFuntion,setLoading, googleLogin, user, setUser,} = useContext(AuthContext)
 
 
 const location = useLocation();
@@ -34,7 +34,7 @@ if(user) {
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log("DOm", { email, password });
-
+  
     ///// Password Condition ///////
     const passwordRegex =
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -61,6 +61,8 @@ if(user) {
       });
   };
 
+
+
   const handleGoogleSignin = () => {
    googleLogin()
       .then((res) => {
@@ -77,7 +79,11 @@ if(user) {
 
 
 
-
+const handeleForget = () =>{
+  navigate("/forgetpassword",{
+    state:{email},
+  })
+}
 
 
 
@@ -98,7 +104,7 @@ if(user) {
               <fieldset className="fieldset">
                 <label className="label text-[12px] text-gray-200">Email</label>
                 <input 
-                  ref={emailRef}
+                  onChange={(e) => setEmail(e.target.value)}
                   name="email"
                   type="email"
                   className="input"
@@ -126,7 +132,7 @@ if(user) {
                 </div>
 
                 <div>
-                  <button type="button"  className="link link-hover text-[12px] text-gray-200">
+                  <button onClick={handeleForget}  type="button"  className="link link-hover text-[12px] text-gray-200">
                     Forgot password?
                   </button>
                 </div>
