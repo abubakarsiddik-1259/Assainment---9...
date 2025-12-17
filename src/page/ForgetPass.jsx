@@ -26,7 +26,7 @@ useEffect(() => {
       .then((res) => {
         console.log(res);
         setLoading(false);
-        toast.success("Chek email reset password");
+        toast.success("Chek email and reset password");
         navigate('/signin')
 
       })

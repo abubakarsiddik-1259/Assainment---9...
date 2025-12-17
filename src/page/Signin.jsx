@@ -53,7 +53,7 @@ if(user) {
         console.log(res);
         setUser(res.user);
          setLoading(false)
-        toast.success("Signup success");
+        toast.success("Signin success");
         navigate(from)
       })
       .catch((e) => {
@@ -69,7 +69,7 @@ if(user) {
          setUser(res.user);
         console.log(res);
          setLoading(false)
-        toast.success("Signup success");
+        toast.success("Signin success");
         navigate(from)
       })
       .catch((e) => {

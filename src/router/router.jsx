@@ -48,6 +48,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/details",
+               
                 Component: Details
             },
             {

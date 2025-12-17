@@ -9,7 +9,7 @@ const TopCategory = ({ topPromise }) => {
       <div className=" gap-4 grid lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1">
         {top.map((category) => (
           <div className="p-2">
-            <div className="card  hover:shadow-lg transition bg-gradient-to-r from-[#49108B] to-[#49108B] h-full px- m-0 w-full shadow-sm ">
+            <div className="card  hover:shadow-lg transition bg-gradient-to-r from-indigo-700 to-[#49108B] h-full px- m-0 w-full shadow-sm ">
               <figure>
                 <img
                   className="p-2 rounded-xl h-50 w-full"
@@ -37,11 +37,11 @@ const TopCategory = ({ topPromise }) => {
                   <span className="italic text-gray-100 font-semibold">
                     Price{" "}
                   </span>
-                  : {category.price}
+                  : {category.price}<i class="fa-solid fa-bangladeshi-taka-sign text-[13px]"></i>
                 </h2>
                 <div className="card-actions justify-center">
                   <Link
-                    className="btn bg-[#27005D] border-0  w-full btn-primary"
+                    className="btn bg-[#874ed8] border-0  w-full btn-primary"
                     to={`/category/${category.skillId}`}
                   >
                     View Detaile
