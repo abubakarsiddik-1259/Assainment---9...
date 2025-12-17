@@ -17,11 +17,58 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
 
+
+
+
+<!-- ////////// My Website Detailse /////////////  -->
+
+
+# Online Skills Learning Website
+
+## Project Name
+**Skillks Leaning** 
+
+## Purpose
+SkillSwap is an online platform where users can explore, learn, and book sessions for various skills such as Music, Web Development, Language, Design, and more.  
+It aims to connect learners with verified providers, making skill development accessible and interactive.
+
+## Live URL
 # [skills-learning](https://skills-learning-website.netlify.app/)
 
+## Key Features
+- Responsive Navbar & Footer  
+- User Authentication:
+  - Signup (with Name, Email, Photo, Password)
+  - Login (with Email & Google social login)
+  - Forgot Password
+- Skill Listings (JSON-based dynamic display)
+- Skill Details Page (Protected, accessible only after login)
+- Booking Form (with success toast)
+- Profile Page:
+  - View & update profile (Name, Photo)
+- Countdown Timer for enrollment deadlines
+- Extra sections:
+  - Hero Slider
+  - Popular Skills
+  - Top Rated Providers
+  - How It Works
+  - Why Choose Us / Categories
+- Search & Filter Skills (optional, if implemented)
+- Wishlist / Saved Skills (optional, if implemented)
 
+## npm Packages Used
+- **react** – Frontend library
+- **react-router-dom** – Routing
+- **firebase** – Authentication & Database
+- **daisyui** – UI components & styles
+- **tailwindcss** – Styling
+- **react-toastify** – Toast notifications
+- **swiper** – Hero slider
 
-
+## Installation
+1. Clone the repo:
+```bash
+git clone https://github.com/abubakarsiddik-1259/Assainment---9....git
 
 
 
