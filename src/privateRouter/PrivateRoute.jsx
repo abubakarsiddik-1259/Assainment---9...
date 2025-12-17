@@ -1,38 +1,22 @@
-import React, { use } from 'react';
-import { AuthContext } from '../context/AuthContext';
-import { Navigate, useLocation } from 'react-router';
-import { HashLoader } from 'react-spinners';
+import React, { use } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { Navigate, useLocation } from "react-router";
+import { HashLoader } from "react-spinners";
 
-const PrivateRoute = ({children}) => {
-    
-    
-    const {user, loading } = use(AuthContext);
+const PrivateRoute = ({ children }) => {
+  const { user, loading } = use(AuthContext);
 
+  const location = useLocation();
 
-    const location = useLocation();
+  if (loading) {
+    return <HashLoader className="mx-auto " />;
+  }
 
+  if (!user) {
+    return <Navigate to="/signin" state={location.pathname}></Navigate>;
+  }
 
-
-    if(loading) {
-        return <HashLoader />
-    }
-
-
-    if(!user){
-        return <Navigate to='/signin' state={location.pathname}></Navigate>
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    return children
+  return children;
 };
 
 export default PrivateRoute;

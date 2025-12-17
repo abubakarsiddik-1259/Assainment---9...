@@ -1,19 +1,20 @@
 import React, { Suspense } from "react";
 import Bannar from "./Bannar";
 import Category from "./Category";
-import TopCategory from './TopCategory';
+import TopCategory from "./TopCategory";
 import HowToWork from "./HowToWork";
 import OfferCart from "./OfferCard";
+import Enroll from "./Enroll";
 
 const categoryPromise = fetch("/categories.json").then((res) => res.json());
 const topPromise = fetch("/top.json").then((res) => res.json());
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="mx-auto">
       <Bannar></Bannar>
 
-   {/* .. category Section ...  */}
+      {/* .. category Section ...  */}
       <Suspense
         fallback={<span className="loading loading-bars loading-xl"></span>}
       >
@@ -26,12 +27,10 @@ const HomePage = () => {
       >
         <TopCategory topPromise={topPromise}></TopCategory>
       </Suspense>
-      
 
       <HowToWork></HowToWork>
-    <OfferCart></OfferCart>
-
-
+      <OfferCart></OfferCart>
+      <Enroll></Enroll>
     </div>
   );
 };

@@ -29,12 +29,12 @@ const {user, setUser, updateProfileFunction, setLoading} = useContext(AuthContex
              });
        
     }
-    
-    return (
-        <div className=' bg-cyan-500  '>
 
-         <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-md text-center w-80">
+    return (
+        <div className='   '>
+
+         <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 via-indigo-500 to-purple-600">
+      <div className="bg-gradient-to-r from-purple-400 via-fuchsia-300 to-pink-400 p-6 rounded-lg shadow-md text-center w-80">
 
         <h2 className="text-xl font-semibold mb-4">My Profile</h2>
 
@@ -44,11 +44,11 @@ const {user, setUser, updateProfileFunction, setLoading} = useContext(AuthContex
         />
 
         <p className="font-medium">{user?.displayName}</p>
-        <h2 className=" text-center">{user?.email}</h2>
+        <h2 className=" text-center text-gray-800">{user?.email}</h2>
 
         <button
           onClick={() => setShow(true)}
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+          className="btn btn-primary bg-pink-500 border-0 w-full mt-5"
         >
           Update Profile
         </button>
@@ -73,7 +73,7 @@ const {user, setUser, updateProfileFunction, setLoading} = useContext(AuthContex
 
             <button
               
-              className="w-full bg-green-500 text-white py-1 rounded"
+              className="btn btn-primary bg-cyan-700 border-0 w-full"
             >
               Save
             </button>

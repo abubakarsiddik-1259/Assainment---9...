@@ -16,17 +16,9 @@ const Navbar = () => {
       </li>
     
       <li className="text-white">
-        <MyLink to="/proflie">Profile</MyLink>
+        <MyLink to="/proflie">My Profile</MyLink>
       </li>
-      <li>
-        <MyLink to="/signin">Signin</MyLink>
-      </li>
-      <li>
-        <MyLink to="/signup">Signup</MyLink>
-      </li>
-      <li>
-        <MyLink to="/details">Details</MyLink>
-      </li>
+      
     </>
   );
 
@@ -67,7 +59,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-gray-500 rounded-box  mt-3 w-52 p-2 z-22 shadow"
             >
               {links}
             </ul>
@@ -109,7 +101,7 @@ const Navbar = () => {
               <div className="">
                 {" "}
                 <button
-                  className="btn btn-primary mt-2 "
+                  className="btn btn-primary mt-2 bg-gradient-to-r from-purple-500 to-pink-500 border-0"
                   onClick={handleSignOut}
                 >
                   Sign Out
@@ -121,7 +113,7 @@ const Navbar = () => {
               <button>
                 <Link
                   to="/signin"
-                  className="btn btn-primary mr-5 border-0 bg-gradient-to-r from-[#4B70F5] to-[#4B70F5]"
+                  className="btn btn-primary mr-5 bg-gradient-to-r from-purple-500 to-pink-500 border-0"
                 >
                   Signin
                 </Link>
@@ -130,7 +122,7 @@ const Navbar = () => {
               <button>
                 <Link
                   to="/signup"
-                  className="btn bg-gradient-to-r from-[#4B70F5] to-[#4B70F5] border-0 btn-primary"
+                  className="btn bg-gradient-to-r from-purple-500 to-pink-500 border-0 btn-primary"
                 >
                   Signup
                 </Link>

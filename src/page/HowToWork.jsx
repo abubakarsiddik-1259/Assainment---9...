@@ -10,7 +10,7 @@ const HowToWork = () => {
             Learn new skills in just 4 easy steps
           </p>
 
-          <div class="grid md:grid-cols-4 gap-8">
+          <div class="grid md:grid-cols-2  lg:grid-cols-4 gap-8">
             <div class="bg-gray-200 p-6 rounded-2xl shadow hover:shadow-lg transition">
               <div class="text-4xl mb-4 text-blue-500">🔍</div>
               <h3 class="font-semibold text-lg mb-2 text-gray-700">

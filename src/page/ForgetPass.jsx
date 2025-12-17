@@ -1,34 +1,30 @@
-import React, { useContext, useEffect, useState,  } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import { Link, useLocation, useNavigate } from "react-router";
 
 const ForgetPass = () => {
-const { setLoading,forgetPassFunction} = useContext(AuthContext)
+  const { setLoading, forgetPassFunction } = useContext(AuthContext);
 
-const navigate = useNavigate();
- const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [email, setEmail] = useState("");
 
-useEffect(() => {
+  useEffect(() => {
     if (location.state?.email) {
       setEmail(location.state.email);
     }
   }, [location.state]);
 
-
   //////////////forget pass //////
 
   const handleForgetPassword = () => {
-    
-    
     forgetPassFunction(email)
       .then((res) => {
         console.log(res);
         setLoading(false);
         toast.success("Chek email and reset password");
-        navigate('/signin')
-
+        navigate("/signin");
       })
       .catch((e) => {
         toast.error(e.message);
@@ -42,15 +38,13 @@ useEffect(() => {
           <fieldset className="fieldset">
             <label className="label text-xl text-gray-200">Email</label>
             <input
-            name="wemail"
+              name="wemail"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-           
               className="input"
               placeholder="Email"
             />
-          
 
             <button
               onClick={handleForgetPassword}
@@ -58,7 +52,6 @@ useEffect(() => {
             >
               Forget password
             </button>
-           
           </fieldset>
         </div>
       </div>

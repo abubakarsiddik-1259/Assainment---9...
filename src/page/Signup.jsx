@@ -1,9 +1,4 @@
-import {
-  
-  GoogleAuthProvider,
-
-
-} from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 
@@ -19,16 +14,8 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-const {signupFun,updateProfileFunction,googleLogin,setUser, setLoading} = useContext(AuthContext)
-
-
-
-
-
-
-
-
-
+  const { signupFun, updateProfileFunction, googleLogin, setUser, setLoading } =
+    useContext(AuthContext);
 
   //////// Submit Fun //////
   const hendleSignup = (e) => {
@@ -37,7 +24,7 @@ const {signupFun,updateProfileFunction,googleLogin,setUser, setLoading} = useCon
     const photoURL = e.target.photo?.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log("DOm", { email, password, displayName,  photoURL });
+    console.log("DOm", { email, password, displayName, photoURL });
 
     ///// Password Condition ///////
     const passwordRegex =
@@ -52,33 +39,26 @@ const {signupFun,updateProfileFunction,googleLogin,setUser, setLoading} = useCon
 
     ///////////////Sigin ///////////
 
-    signupFun( email, password)
+    signupFun(email, password)
       .then((res) => {
         console.log(res);
-        
-        updateProfileFunction(
-          displayName,
-          photoURL,
-        ) .then((res) => {
-           setUser(null)
-        console.log(res);
-        setLoading(false)
-       
-        navigate("/signin")
-       
-        toast.success("Signup success");
+
+        updateProfileFunction(displayName, photoURL)
+          .then((res) => {
+            setUser(null);
+            console.log(res);
+            setLoading(false);
+
+            navigate("/signin");
+
+            toast.success("Signup success");
+          })
+          .catch((e) => {
+            toast.error(e.message);
+          });
       })
       .catch((e) => {
-        toast.error(e.message);
-      });
-
-
-
-        
-      })
-      .catch((e) => {
-        
-           if (e.code === "auth/email-already-in-use") {
+        if (e.code === "auth/email-already-in-use") {
           toast.error("This email is already in use.");
         } else if (e.code === "auth/invalid-email") {
           toast.error("Please enter a valid email address.");
@@ -102,22 +82,21 @@ const {signupFun,updateProfileFunction,googleLogin,setUser, setLoading} = useCon
           // any other unknown error
           toast.error(e.message);
         }
-
       });
   };
 
-   const handleGoogleSignin = () => {
+  const handleGoogleSignin = () => {
     googleLogin()
-       .then((res) => {
-          setUser(res.user);
-         console.log(res);
-          setLoading(false)
-         toast.success("Signup success");
-       })
-       .catch((e) => {
-         toast.error(e.message);
-       });
-   };
+      .then((res) => {
+        setUser(res.user);
+        console.log(res);
+        setLoading(false);
+        toast.success("Signup success");
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
   return (
     <div className="bg-gradient-to-r from-blue-400 to-green-600">
       <div className="hero  min-h-screen">
@@ -134,8 +113,7 @@ const {signupFun,updateProfileFunction,googleLogin,setUser, setLoading} = useCon
                   required
                 />
 
-
-                 <label className="label text-[12px] text-gray-200">Email</label>
+                <label className="label text-[12px] text-gray-200">Email</label>
                 <input
                   name="email"
                   type="email"
@@ -144,8 +122,9 @@ const {signupFun,updateProfileFunction,googleLogin,setUser, setLoading} = useCon
                   required
                 />
 
-
-                 <label className="label text-[12px] text-gray-200">Photo URL</label>
+                <label className="label text-[12px] text-gray-200">
+                  Photo URL
+                </label>
                 <input
                   name="photo"
                   type="text"
